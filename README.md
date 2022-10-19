@@ -4,6 +4,7 @@
 
 ## Built With
 
+- Gitflow
 - Webpack
 - EC6
 - HTML
