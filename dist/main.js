@@ -115,17 +115,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/data */ \"./src/modules/data.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconst uldata = document.querySelector('.scores');\n\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('carlos', 100);\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('patrick', 300);\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('julian', 10);\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('david', 1005);\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('juan manuel', 6100);\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('lucy', 108);\nuldata.innerHTML += _modules_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement('carla', 10560);\n\n\n//# sourceURL=webpack://leader-board/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/request */ \"./src/modules/request.js\");\n\n\n\nconst api = new _modules_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n\ndocument.getElementById('submit').addEventListener('submit', (e) => {\n  api.postgame('futboll');\n\n  const name = document.querySelector('.nameS');\n  const score = document.querySelector('.scoreS');\n\n  if (!(name.value === '' && score.value === '')) {\n    api.postscores(name.value, score.value);\n    e.preventDefault();\n    name.value = '';\n    score.value = '';\n  }\n\n  e.preventDefault();\n});\n\ndocument.querySelector('.refreshB').addEventListener('click', () => {\n  api.addlielement();\n});\n\nwindow.addEventListener('load', () => {\n  api.addlielement();\n});\n\n\n//# sourceURL=webpack://leader-board/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/modules/data.js":
-/*!*****************************!*\
-  !*** ./src/modules/data.js ***!
-  \*****************************/
+/***/ "./src/modules/element.js":
+/*!********************************!*\
+  !*** ./src/modules/element.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ lielement)\n/* harmony export */ });\nclass lielement {\n  static generateElement(name, score) {\n    return `<li>${name}: ${score}</li>`;\n  }\n}\n\n\n//# sourceURL=webpack://leader-board/./src/modules/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ lielement)\n/* harmony export */ });\nclass lielement {\n  static generateElement(name, score) {\n    return `<li>${name}: ${score}</li>`;\n  }\n}\n\n\n//# sourceURL=webpack://leader-board/./src/modules/element.js?");
+
+/***/ }),
+
+/***/ "./src/modules/request.js":
+/*!********************************!*\
+  !*** ./src/modules/request.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Requestapi)\n/* harmony export */ });\n/* harmony import */ var _element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./element */ \"./src/modules/element.js\");\n\n\nclass Requestapi {\n    postgame = async (game) => {\n      await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({ name: game }),\n      });\n    }\n\n    postscores= async (name, score) => {\n      await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/600/scores/', {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({ user: name, score }),\n      });\n    }\n\n    getscores = async () => {\n      const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/600/scores/');\n      const data = await response.json();\n\n      return data;\n    }\n\n  addlielement = async () => {\n    const data = await this.getscores();\n    let elementsli = '';\n    for (const e of data.result) {\n      elementsli += _element__WEBPACK_IMPORTED_MODULE_0__[\"default\"].generateElement(e.user, e.score);\n    }\n    document.querySelector('.scores').innerHTML = elementsli;\n  }\n}\n\n\n//# sourceURL=webpack://leader-board/./src/modules/request.js?");
 
 /***/ })
 
