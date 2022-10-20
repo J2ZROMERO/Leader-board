@@ -1,12 +1,35 @@
-import lielement from './modules/data';
+import lielement from './modules/element';
 import './style.css';
+import request from './modules/request.js'
 
-const uldata = document.querySelector('.scores');
+let api  = new request;
 
-uldata.innerHTML += lielement.generateElement('carlos', 100);
-uldata.innerHTML += lielement.generateElement('patrick', 300);
-uldata.innerHTML += lielement.generateElement('julian', 10);
-uldata.innerHTML += lielement.generateElement('david', 1005);
-uldata.innerHTML += lielement.generateElement('juan manuel', 6100);
-uldata.innerHTML += lielement.generateElement('lucy', 108);
-uldata.innerHTML += lielement.generateElement('carla', 10560);
+
+document.getElementById('submit').addEventListener('submit',(e)=>{
+   
+    api.postgame("futboll")
+
+    const name = document.querySelector('.nameS');
+    const score = document.querySelector('.scoreS');
+    
+    if(!(name.value === "" && score.value === "")){
+        api.postscores(name.value,score.value)
+        e.preventDefault()
+        name.value = ""
+        score.value = ""
+    }
+    
+    e.preventDefault()
+    
+    
+})
+  
+  document.querySelector('.refreshB').addEventListener('click', ()=>{
+    api.addlielement()
+  })
+  
+   window.addEventListener('load', ()=>{
+  api.addlielement()
+  
+  })
+  

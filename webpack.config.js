@@ -22,7 +22,7 @@ module.exports = {
     clean: true,
 
   },
-  module: {
+ module: {
     rules: [
       {
         test: /\.css$/i,
