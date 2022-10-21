@@ -34,6 +34,10 @@ To get a local copy up and running follow these simple example steps.
 
 [clone this repo](https://github.com/J2ZROMERO/Leader-board.git)
 
+> Follow these steps to run the project ⚠️
+> step 1: execute in your terminal with the corresponding path "npm run build"
+> step 2: execute with the corresponding path "npm run start"
+
 # [LIVE DEMO](https://j2zromero.github.io/Leader-board/dist/)
 
 ## Authors
