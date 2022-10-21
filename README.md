@@ -1,6 +1,6 @@
 # Leader-board
 
-> The porpuse for this project is show You, how is the use of an API for show data.
+> The porpuse for this project is show You, how to put values and consume data from an API.
 
 ## Built With
 
