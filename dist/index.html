@@ -4,36 +4,59 @@
     <meta charset="utf-8">
     <title>Output Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
   <body>
 
    <container class="scoredata">
-  
+
     <div class="score">
       <h1 class="title">Leaderborad</h1>
+      <!-- form -->
+    <div class="formc">
+      <form id="submit"  class="formscore" >
+  <h2 class="titlesub">Add your score</h2>
+ <div class="inputs">
+  <input class="nameS" type="text" placeholder="  your name" >
+  <input class="scorein" type="text" placeholder="  your score" >
+  <button class="send" type="button">Submit</button></div>
+  </form>
+    </div>
+    <!-- form -->
     <div class="subscoredata">
-    
+
     <div class="data">
       <div class="scoresc">
-   
-        <h2>Recent scores <button type="button" class="refreshB" >Refresh</button> </h2>
-      <ul class="scores"></ul>
-    </div>
-    </div>
-    
-    <div class="formc">
-    <form id="submit"  class="formscore" >
-<h2>Add your score</h2>
-<input class="nameS" type="text" placeholder="your name" >
-<input class="scoreS" type="text" placeholder="your score" >
-<button class="send" type="button">submit</button>
-</form>
 
-
+        <h2 class="recenth2">Recent scores <button type="button" class="refreshB" >Refresh</button> </h2>
+      <ul class="scores">
+    <!--  -->
+<div class="loader">
+  <div class="loader-inner">
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
+    <div class="loader-line-wrap">
+      <div class="loader-line"></div>
+    </div>
   </div>
+</div>
+<!--  -->
+      </ul>
     </div>
-  </container> 
+    </div>
+
+    </div>
+  </container>
 
 </body>
 </html>
