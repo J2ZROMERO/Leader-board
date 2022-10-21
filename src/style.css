@@ -1,15 +1,34 @@
+*,*:before, *:after{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
 body,
 html,
 .scoredata {
   width: 100%;
   height: 100%;
   display: flex;
+  background-color: aliceblue;
 }
 
 .title {
   font-size: 6em;
+  color: #175abb;
+}
+.nameS{
+  width: 25%;
+  height: 25px;
+  font-size: .7em;
 }
 
+.scoreS{
+  width: 25%;
+  height: 25px;
+  margin-left: 2%;
+}
 .score {
   width: 100%;
   height: 100%;
@@ -20,15 +39,17 @@ html,
   padding: 0;
 }
 
-.scores {
+.scoreS {
   padding: 0;
   list-style: none;
+  font-size: .7em;
 }
 
 .data {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 3%;
 }
 
 .subscoredata {
@@ -36,30 +57,192 @@ html,
   width: 100%;
   display: flex;
 }
+.scores{
+  padding: 0;
+  margin-top: 3%;
+}
 
 .formc {
   display: flex;
   gap: 14px;
-  width: 50%;
+  width: 100%;
   justify-content: center;
 }
+.refreshB{
+  margin-left: 28%;
+  width: 20%;
+  font-size: .6em;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  align-items: center;
+  box-shadow:5px 5px 2px 1px rgba(0, 0, 255, .2);
+}
+.send{
+  margin-left: 28%;
+  width: 20%;
+  font-size: 1.2em;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  align-items: center;
+  box-shadow:5px 5px 2px 1px rgba(0, 0, 255, .2);
+}
 
+.send:hover,.refreshB:hover{
+transform:  scale(1.2);
+}
 .formscore {
   height: 30%;
-  width: 50%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8%;
 }
 
 .scoresc {
   width: 75%;
   height: 27%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
+li{
+  display: flex;
+  justify-content: center;
+}
 li:nth-child(even) {
+  
   background: rgb(220, 221, 220);
 }
-
-h2 {
-  text-align: end;
+.titlesub{
+  display: flex;
+  justify-content: flex-start;
+  width: 75%;
 }
+.recenth2{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: 200;
+}
+.inputs{
+  width: 75%;
+  display: flex;
+  margin-top: 2%;
+}
+.nameli,.scoreli{
+  width: 48%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1em;
+}
+span{
+  width: 4%;
+  font-weight: 5em;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+}
+/*  */
+.loader {
+  /* background: #000;
+  background: radial-gradient(#222, #000); */
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+}
+
+.loader-inner {
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+
+.loader-line-wrap {
+  animation: 
+  spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+;
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 100%;
+  width: 100px;
+}
+.loader-line {
+  border: 4px solid transparent;
+  border-radius: 100%;
+  box-sizing: border-box;
+  height: 100px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) .loader-line {
+  border-color:black;
+  height: 90px;
+  width: 90px;
+  top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+  border-color:gray;
+  height: 76px;
+  width: 76px;
+  top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+  border-color:black;
+  height: 62px;
+  width: 62px;
+  top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+  border-color:gray;
+  height: 48px;
+  width: 48px;
+  top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+  border-color:balck;
+  height: 34px;
+  width: 34px;
+  top: 35px;
+}
+
+@keyframes spin {
+  0%, 15% {
+  transform: rotate(0);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+/*  */
